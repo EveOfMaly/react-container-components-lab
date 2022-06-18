@@ -23,31 +23,28 @@ export default class SearchableMovieReviewsContainer extends Component{
         [event.target.name]: event.target.value
         })
     }
+    
 
  
     
 
     onSubmit = (event) => {
-    
-        event.preventDefault()
+        event.preventDefault();
 
-        fetch(BASE_URL.concat(this.state.query))
-        .then(res => res.json())
+     fetch(BASE_URL.concat(this.state.searchTerm))
+      .then(res => res.json())
       .then(res => this.setState({ reviews: res.results }));
-
-    }
-
-
+  };
 
 
     render(){
         return (<div>
                     <form onSubmit={event => this.onSubmit(event)}>
-                                    <input onChange={event => this.onChange(event)} value={this.state.input} name="searchTerm"></input>
-                                    <button>Search</button>
-                                </form>
-                                <MovieReviews reviews={this.state.reviews}/>
-        </div>
+                    <input onChange={event => this.onChange(event)} value={this.state.input} name="searchTerm"></input>
+                    <button>Search</button>
+                    </form>
+                    <MovieReviews reviews={this.state.reviews}/>
+                </div>
             
             )
             

@@ -25,10 +25,6 @@ export default class LatestMovieReviewsContainer extends Component{
     }
 
 
-    // renderLatestMovies = () => {
-    //     return (this.state.reviews.map((review) =>  <div className='latest-movie-reviews'>{review}</div>))
-    // }
-
 
     render(){
         return (
